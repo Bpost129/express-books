@@ -1,14 +1,10 @@
 import { Router } from 'express'
 
-import { books } from '../data/book-data.js'
+import * as booksCtrl from '../controllers/books.js'
 
 const router = Router()
 
 // GET localhost:3000/users
-router.get('/', function(req, res) {
-  res.render('books/index', {
-    books: books
-  })
-})
+router.get('/', booksCtrl.index)
 
 export { router }
