@@ -1,5 +1,7 @@
 import { Router } from 'express'
 
+import { books } from '../data/book-data.js'
+
 const router = Router()
 
 // GET localhost:3000/users
