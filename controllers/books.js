@@ -1,8 +1,15 @@
-import { books } from '../data/book-data.js'
+import { Book } from '../models/book.js'
 
 function index(req, res) {
-  res.render('books/index', {
-    books: books
+  Book.find({})
+  .then(books => { // books represents the result of the query, in this case ALL books
+    res.render('books/index', {
+      books: books,
+    })
+  })
+  .catch(error => { // If there's an error, console.log it and redirect back home!
+    console.log(error)
+    res.redirect('/')
   })
 }
 
